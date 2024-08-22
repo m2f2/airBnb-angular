@@ -1,0 +1,17 @@
+<!-- Container for the categories list -->
+<div class="categories pt-3 mx-8">
+  <!-- Loop through the categories array and track by the unique technicalName -->
+  @for (category of categories; track category.technicalName) {
+    <!-- Only render the category if its technicalName is not 'ALL' -->
+    @if (category.technicalName !== 'ALL') {
+      <!-- Individual category container with conditional class binding -->
+      <div class="flex flex-column align-items-center pb-3 category"
+          [class.category-activated]="category.activated">
+        <!-- Display the icon for the category -->
+        <fa-icon class="mb-1" [icon]="category.icon"></fa-icon>
+        <!-- Display the category name as a title and as text -->
+        <div title="{{category.displayName}}" class="name">{{ category.displayName }}</div>
+      </div>
+    }
+  }
+</div>
